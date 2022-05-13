@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+h1{
+    text-align: center;
+}
+
+.bottom-line{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+form{
+    max-width: 600px;
+    margin: auto;
+}
+
+#countries-select, #countries-filter{
+    width: 40%;
+}
+
+.country-info-container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: auto;
+    padding: 0, 20px;
+}
+
+.chart-container{
+    max-width: 1400px;
+    margin: auto;
+}

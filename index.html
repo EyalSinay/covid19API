@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.desktop.css">
+    <link rel="stylesheet" href="css/style.display.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="js/app.js" type="module" defer></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Covid-19 Statistic</title>
+</head>
+
+<body>
+    <div id="rotate_mobile-container" display-none>
+        
+    </div>
+    <div id="spinner-container">
+        <h1 class="bottom-line">Covid-19 Statistic</h1>
+        <p>Loading...</p>
+        <img id="spinner-img" src="assets/covid-19.svg" alt="loading" srcset="">
+    </div>
+    <!-- app: -->
+    <div id="app-container" display-none>
+        <h1 class="bottom-line">Covid-19 Statistic</h1>
+        <form>
+            <div class="world-container bottom-line">
+                <input type="radio" name="world" id="World" checked>
+                <label for="World">World</label>
+            </div>
+            <div class="continent-container bottom-line">
+                <input type="radio" name="world" id="Asia">
+                <label for="Asia">Asia</label>
+                <input type="radio" name="world" id="Africa">
+                <label for="Africa">Africa</label>
+                <input type="radio" name="world" id="Europe">
+                <label for="Europe">Europe</label>
+                <input type="radio" name="world" id="Americas">
+                <label for="Americas">America</label>
+                <input type="radio" name="world" id="Oceania">
+                <label for="Oceania">Oceania</label>
+            </div>
+            <div class="countries-container bottom-line">
+                <select name="countries-select" id="countries-select">
+                    
+                </select>
+                <input type="text" name="countries-filter" id="countries-filter">
+            </div>
+        </form>
+        <h2>Today in Afghanistan:</h2>
+        <div class="country-info-container">
+            <div id="total-cases" class="country-info__info">
+                <h4>Total cases:</h4>
+            </div>
+            <div id="new-cases" class="country-info__info">
+                <h4>New cases:</h4>
+            </div>
+            <div id="total-deaths" class="country-info__info">
+                <h4>Total deaths:</h4>
+            </div>
+            <div id="new-deaths" class="country-info__info">
+                <h4>New deaths:</h4>
+            </div>
+            <div id="total-recovered" class="country-info__info">
+                <h4>Total recovered:</h4>
+            </div>
+            <div id="in-critical-condition" class="country-info__info">
+                <h4>In critical condition:</h4>
+            </div>
+        </div>
+        <div class="chart-container">
+            <div class="statistic-btn-container">
+                <input type="radio" name="statistic-btn" id="confirmed" checked>
+                <label for="confirmed">Confirmed cases</label>
+                <input type="radio" name="statistic-btn" id="deaths">
+                <label for="deaths">Number of deaths</label>
+                <input type="radio" name="statistic-btn" id="recovered">
+                <label for="recovered">Number of recovered</label>
+                <input type="radio" name="statistic-btn" id="critical">
+                <label for="critical">Number of critical condition</label>
+            </div>
+            <canvas id="myChart" width="400" height="100"></canvas>
+        </div>
+    </div>
+</body>
+
+</html>

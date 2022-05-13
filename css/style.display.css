@@ -1,0 +1,38 @@
+
+/* spinner */
+#spinner-container:not([display-none]){
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#spinner-img{
+    width: 50%;
+    height: 50%;
+    animation: rotate 3s infinite linear;
+}
+@keyframes rotate{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+/* rotate mobile */
+#rotate_mobile-container{
+    background-image: url("../assets/rotate-mobile.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+}
+
+[display-none]{
+    display: none;
+}
+
+@media(max-width: 400px) {
+    #rotate_mobile-container{
+        display: block;
+    }
+}
