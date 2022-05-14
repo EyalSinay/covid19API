@@ -1,5 +1,6 @@
 import { chartConfig, currentStat } from "./chart.js";
-import { init, arrayOfCountriesForCharts, arrayOfStatsForCharts, objCountriesByContinent } from "./load-data.js";
+import { init } from "./load-data.js";
+import { continentRadioEvent, statsRadioEvent } from "./inputs.js";
 
 export const state = {
     stats: {
@@ -40,7 +41,7 @@ export const state = {
     },
 }
 
-const myChart = new Chart(
+export const myChart = new Chart(
     document.getElementById('myChart'),
     chartConfig
 );
@@ -50,23 +51,10 @@ init();
 
 const continentRadio = document.querySelectorAll("form input[type='radio']");
 for (let input of continentRadio) {
-    input.addEventListener("change", e => {
-        const id = e.target.getAttribute("id");
-        objCountriesByContinent.methods.setCountriesInArr(arrayOfCountriesForCharts, id);
-        objCountriesByContinent.methods.setStatInArr_latestData(arrayOfStatsForCharts, state.methods.getCurrentStatInString());
-        myChart.update();
-        state.methods.setCurrentContinentByString(id);
-    });
+    input.addEventListener("change", continentRadioEvent);
 }
 
 const statsRadio = document.querySelectorAll(".statistic-btn-container input[type='radio']");
 for (let input of statsRadio) {
-    input.addEventListener("change", e => {
-        const id = e.target.getAttribute("id");
-        objCountriesByContinent.methods.setCountriesInArr(arrayOfCountriesForCharts, state.methods.getCurrentContinentInString());
-        objCountriesByContinent.methods.setStatInArr_latestData(arrayOfStatsForCharts, id);
-        // currentStat = state.methods.getCurrentStatInString(); //!!???!?!!?!?!!
-        myChart.update();
-        state.methods.setCurrentStatByString(id);
-    });
+    input.addEventListener("change", statsRadioEvent);
 }

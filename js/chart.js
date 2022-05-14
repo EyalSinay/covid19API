@@ -2,12 +2,12 @@ import { arrayOfCountriesForCharts, arrayOfStatsForCharts } from "./load-data.js
 // import { state } from "./app.js"
 
 // let currentStatInString = state.methods.getCurrentStatInString();
-export let currentStat = "confirmed";
+export const currentStat = ["confirmed"];
 
 const chartData = {
     labels: arrayOfCountriesForCharts,
     datasets: [{
-        label: currentStat,
+        label: currentStat[0],
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: arrayOfStatsForCharts,
