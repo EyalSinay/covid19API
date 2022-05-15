@@ -1,6 +1,8 @@
 import { appendAllSelectOptionsByArr } from "./inputs.js";
+
 export const arrayOfCountriesForCharts = [];
 export const arrayOfStatsForCharts = [];
+export const arrayOfStatsToday = [];
 
 export const objCountriesByContinent = {
     continent: {
@@ -58,7 +60,16 @@ export const objCountriesByContinent = {
                 const countryObj = objCountriesByContinent.methods.getCountryObjByName(country);
                 arr.push(countryObj.latest_data[stats]);
             });
-        }
+        },
+        setStatInArr_today: function (arr, stats) {
+            while (arr.length > 0) {
+                arr.pop();
+            }
+            arrayOfCountriesForCharts.forEach(country => {
+                const countryObj = objCountriesByContinent.methods.getCountryObjByName(country);
+                arr.push({[country]: countryObj.today});
+            });
+        },
     }
 }
 
@@ -70,6 +81,7 @@ export async function init() {
     
     objCountriesByContinent.methods.setCountriesInArr(arrayOfCountriesForCharts, "World");
     objCountriesByContinent.methods.setStatInArr_latestData(arrayOfStatsForCharts, "confirmed");
+    objCountriesByContinent.methods.setStatInArr_today(arrayOfStatsToday);
     appendAllSelectOptionsByArr(arrayOfCountriesForCharts);
 
 }

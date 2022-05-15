@@ -1,6 +1,6 @@
 import { chartConfig, currentStat } from "./chart.js";
 import { init } from "./load-data.js";
-import { continentRadioEvent, statsRadioEvent, filterTextEvent } from "./inputs.js";
+import { continentRadioEvent, statsRadioEvent, filterTextEvent, selectEvent } from "./inputs.js";
 
 export const state = {
     stats: {
@@ -58,6 +58,9 @@ const statsRadio = document.querySelectorAll(".statistic-btn-container input[typ
 for (let input of statsRadio) {
     input.addEventListener("change", statsRadioEvent);
 }
+
+const selectInput = document.getElementById("countries-select");
+selectInput.addEventListener("input", selectEvent)
 
 const filterText = document.getElementById("countries-filter");
 filterText.addEventListener("input", filterTextEvent);
