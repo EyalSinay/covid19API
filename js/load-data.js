@@ -1,6 +1,6 @@
+import { appendAllSelectOptionsByArr } from "./inputs.js";
 export const arrayOfCountriesForCharts = [];
 export const arrayOfStatsForCharts = [];
-export const arrayOfCountriesForSelect = [];
 
 export const objCountriesByContinent = {
     continent: {
@@ -70,7 +70,7 @@ export async function init() {
     
     objCountriesByContinent.methods.setCountriesInArr(arrayOfCountriesForCharts, "World");
     objCountriesByContinent.methods.setStatInArr_latestData(arrayOfStatsForCharts, "confirmed");
-    objCountriesByContinent.methods.setCountriesInArr(arrayOfCountriesForSelect, "World");
+    appendAllSelectOptionsByArr(arrayOfCountriesForCharts);
 
 }
 
